@@ -1,28 +1,35 @@
 <?php
 
 /**
- * Use block editor for Woo products.
+ * Run these function late, making sure Woo is loaded.
+ *
+ * @return void
  */
-add_filter( 'use_block_editor_for_post_type', function( $can_edit, $post_type ) {
-	if ( 'product' === $post_type ) {
-		$can_edit = true;
-	}
+add_action( 'after_setup_theme', function() {
+	/**
+	 * Use block editor for Woo products.
+	 */
+	add_filter( 'use_block_editor_for_post_type', function( $can_edit, $post_type ) {
+		if ( 'product' === $post_type ) {
+			$can_edit = true;
+		}
 
-	return $can_edit;
+		return $can_edit;
 
-}, 10, 2 );
+	}, 10, 2 );
 
-/**
- * Allow Woo Product Categories to work in block editor.
- */
-add_filter( 'register_taxonomy_args', function( $args, $taxonomy, $object_type ) {
-	if ( in_array( $taxonomy, [ 'product_cat', 'product_tag' ] ) ) {
-		$args['show_in_rest'] = true;
-	}
+	/**
+	 * Allow Woo Product Categories to work in block editor.
+	 */
+	add_filter( 'register_taxonomy_args', function( $args, $taxonomy, $object_type ) {
+		if ( in_array( $taxonomy, [ 'product_cat', 'product_tag' ] ) ) {
+			$args['show_in_rest'] = true;
+		}
 
-	return $args;
+		return $args;
 
-}, 10, 3 );
+	}, 10, 3 );
+});
 
 /**
  * Remove the short description meta box.

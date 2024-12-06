@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Run these function late, making sure Woo is loaded.
+ *
+ * @return void
+ */
 add_action( 'after_setup_theme', function() {
 	/**
 	 * Removes result count from shop loop.
