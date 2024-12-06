@@ -4,7 +4,7 @@
  * Plugin Name:     Sky Dog Foo Programs
  * Plugin URI:      https://skydogtech.com
  * Description:     Customizing Programs from Foo Events via WooCommerce Products
- * Version:         0.1.0
+ * Version:         0.1.1
  *
  * Author:          Sky Dog Tech
  * Author URI:      https://skydogtech.com
@@ -92,7 +92,7 @@ final class SkyDog_Foo_Programs_Plugin {
 	private function setup_constants() {
 		// Plugin version.
 		if ( ! defined( 'SKYDOG_FOO_PROGRAMS_VERSION' ) ) {
-			define( 'SKYDOG_FOO_PROGRAMS_VERSION', '0.1.0' );
+			define( 'SKYDOG_FOO_PROGRAMS_VERSION', '0.1.1' );
 		}
 
 		// Plugin Folder Path.
