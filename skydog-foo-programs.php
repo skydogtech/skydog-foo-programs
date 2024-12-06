@@ -250,6 +250,4 @@ function skydog_foo_programs_plugin() {
 }
 
 // Get SkyDog_Foo_Programs_Plugin Running.
-// add_action( 'after_setup_theme', function() {
-	skydog_foo_programs_plugin();
-// }, 30 );
+skydog_foo_programs_plugin();
