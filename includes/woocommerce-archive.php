@@ -1,40 +1,41 @@
 <?php
 
+add_action( 'after_setup_theme', function() {
+	/**
+	 * Removes result count from shop loop.
+	 *
+	 * @return void
+	 */
+	remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
 
-/**
- * Removes result count from shop loop.
- *
- * @return void
- */
-remove_action( 'woocommerce_before_shop_loop' , 'woocommerce_result_count', 20 );
+	/**
+	 * Removes sort select box from shop loop.
+	 *
+	 * @return void
+	 */
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
-/**
- * Removes sort select box from shop loop.
- *
- * @return void
- */
-remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
+	/**
+	 * Removes links from title in shop loop.
+	 * This allows other links (teachers) below it on the shop.
+	 *
+	 * @return void
+	 */
+	remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
+	remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
 
-/**
- * Removes links from title in shop loop.
- * This allows other links (teachers) below it on the shop.
- *
- * @return void
- */
-remove_action( 'woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10 );
-remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5 );
+	/**
+	 * Removes prices from shop loop.
+	 */
+	remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
 
-/**
- * Removes prices from shop loop.
- */
-remove_action( 'woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_price', 10 );
-
-/**
- * Remove product images from archive template.
- *
- * @return void
- */
-remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+	/**
+	 * Remove product images from archive template.
+	 *
+	 * @return void
+	 */
+	remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10 );
+});
 
 /**
  * Load custom JS.
