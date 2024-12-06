@@ -167,7 +167,7 @@ final class SkyDog_Foo_Programs_Plugin {
 		}
 
 		// Setup the updater.
-		$updater = PucFactory::buildUpdateChecker( 'https://github.com/skydogtech/skydog-foo-programs/', __FILE__, 'mai-lists' );
+		$updater = PucFactory::buildUpdateChecker( 'https://github.com/skydogtech/skydog-foo-programs/', __FILE__, 'skydog-foo-programs' );
 
 		// Maybe set github api token.
 		if ( defined( 'SKYDOG_GITHUB_API_TOKEN' ) ) {
