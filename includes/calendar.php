@@ -19,7 +19,7 @@ function skydog_do_calendar( $local_args, $calendar_id ) {
 		$teachers = $teachers ? strip_tags( $teachers ) : '';
 		$teachers = $teachers ? ' · ' . $teachers: '';
 
-		$data->events[ $index ]->title           = '· ' . $data->events[ $index ]->title . $teachers;
+		$data->events[ $index ]->title           = $data->events[ $index ]->title . $teachers;
 		$data->events[ $index ]->className       = skydog_get_category_classes( $event->post_id );
 		$data->events[ $index ]->textColor       = 'var(--event-color, inherit)';
 		$data->events[ $index ]->backgroundColor = 'var(--event-background-color, inherit)';
@@ -33,8 +33,8 @@ function skydog_do_calendar( $local_args, $calendar_id ) {
 		$categories = get_terms(
 			[
 
-				'taxonomy'	 => 'product_cat',
-				'parent'	 => 0,
+				'taxonomy'   => 'product_cat',
+				'parent'     => 0,
 				'hide_empty' => true,
 			]
 		);
