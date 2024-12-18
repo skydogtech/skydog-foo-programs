@@ -71,6 +71,12 @@ function skydog_do_calendar( $local_args, $calendar_id ) {
 		var localObj = '<?php echo $local_args['json_events']; ?>';
 		var settings = JSON.parse( localObj );
 		if( $( '#'+settings.id ).length ) {
+			settings.eventRender = function(event, element) {
+				// Decode HTML entities for the title.
+				var decodedTitle = $('<div>').html(event.title).text(); // Decodes &amp; to &.
+				element.find('.fc-title').text(decodedTitle); // Set the decoded title.
+			};
+
 			jQuery( '#'+settings.id ).fullCalendar( settings );
 		}
 
